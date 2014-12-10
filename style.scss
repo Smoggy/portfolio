@@ -1,0 +1,148 @@
+
+.gallery_wrapper {
+
+	.project_menu {
+		text-align: center;
+		padding: 20px 0px;
+		font-size: 40px;
+
+		li {
+			display: inline-block;
+			padding-right: 130px;
+
+			&:last-child {
+				padding-right: 0;
+			}			
+
+			a {
+				text-decoration: none;
+				color: black;
+			}
+
+			&.active {
+				a {
+					color: red;
+				}
+			}
+		}		
+	}
+
+	.gallery {
+		width: 100%;
+
+		ul {
+			width: 100%;
+
+			li {
+				width: 25%;
+				height: 300px;
+				float: left;
+				position: relative;
+
+				.project {
+					width: 100%;
+					position: absolute;
+					overflow: hidden;
+					height: 300px;
+					z-index: 1;
+					cursor: pointer;
+
+					a {
+						.project_photos {
+							margin-top: -25px;
+							position: relative;
+							width: 100%;
+							height: 100%;
+
+							img {
+								position: absolute;
+								top: 0;
+								left: 0;
+								width: 100%;
+								max-width: 100%;
+								vertical-align: middle;
+								border: 0;
+								height: auto;
+								opacity: 0;
+
+								&:first-child {
+									opacity: 1;
+								}
+							}
+						}
+						.mask {
+							opacity: 0;
+							width: 100%;
+							height: 100%;
+							background-color: #141414;
+							top: 0;
+							position: absolute;
+							transition: all 0.4s;
+							z-index: 6;
+						}
+
+						.bottom_mask {
+							position: absolute;
+							width: 100%;
+							height: 230px;
+							left: 0;
+							bottom: 0;
+							opacity: 0;
+							background-size: 100%;
+							z-index: 6;
+							background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, #000000));
+							background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #000000 100%);
+							background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #000000 100%);
+							background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #000000 100%);
+							background-image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, #000000 100%);
+						}
+					}
+
+					h2 {
+						position: absolute;
+						/*bottom: 25px;*/
+						color: white;
+						font-size: 30px;
+						left: 35px;
+						bottom: -80px;
+						z-index: 6;
+						span {
+							font-size: 18px;
+						}
+					}
+
+					.project_link {
+						position: absolute;
+						right: 35px;
+						color: white;
+						text-decoration: none;
+						border: 1px solid;
+						font-size: 30px;
+						padding: 5px 15px;
+						/*bottom: 25px;*/
+						bottom: -80px;
+						border-radius: 5px;
+						z-index: 6;
+
+						&:hover {
+							background-color: rgba(255,255,255,0.6);
+						}
+					}
+
+					&.in_active {
+						cursor: default;
+						a {
+							.mask {
+								z-index: 6;
+								opacity: 0.9 !important;
+								transition: all 0.4s;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+}

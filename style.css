@@ -1,0 +1,102 @@
+.gallery_wrapper .project_menu {
+  text-align: center;
+  padding: 20px 0px;
+  font-size: 40px; }
+  .gallery_wrapper .project_menu li {
+    display: inline-block;
+    padding-right: 130px; }
+    .gallery_wrapper .project_menu li:last-child {
+      padding-right: 0; }
+    .gallery_wrapper .project_menu li a {
+      text-decoration: none;
+      color: black; }
+    .gallery_wrapper .project_menu li.active a {
+      color: red; }
+.gallery_wrapper .gallery {
+  width: 100%; }
+  .gallery_wrapper .gallery ul {
+    width: 100%; }
+    .gallery_wrapper .gallery ul li {
+      width: 25%;
+      height: 300px;
+      float: left;
+      position: relative; }
+      .gallery_wrapper .gallery ul li .project {
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        height: 300px;
+        z-index: 1;
+        cursor: pointer; }
+        .gallery_wrapper .gallery ul li .project a .project_photos {
+          margin-top: -25px;
+          position: relative;
+          width: 100%;
+          height: 100%; }
+          .gallery_wrapper .gallery ul li .project a .project_photos img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            vertical-align: middle;
+            border: 0;
+            height: auto;
+            opacity: 0; }
+            .gallery_wrapper .gallery ul li .project a .project_photos img:first-child {
+              opacity: 1; }
+        .gallery_wrapper .gallery ul li .project a .mask {
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #141414;
+          top: 0;
+          position: absolute;
+          transition: all 0.4s;
+          z-index: 6; }
+        .gallery_wrapper .gallery ul li .project a .bottom_mask {
+          position: absolute;
+          width: 100%;
+          height: 230px;
+          left: 0;
+          bottom: 0;
+          opacity: 0;
+          background-size: 100%;
+          z-index: 6;
+          background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, transparent), color-stop(100%, #000000));
+          background-image: -webkit-linear-gradient(top, transparent 0%, #000000 100%);
+          background-image: -moz-linear-gradient(top, transparent 0%, #000000 100%);
+          background-image: -o-linear-gradient(top, transparent 0%, #000000 100%);
+          background-image: linear-gradient(top, transparent 0%, #000000 100%); }
+        .gallery_wrapper .gallery ul li .project h2 {
+          position: absolute;
+          /*bottom: 25px;*/
+          color: white;
+          font-size: 30px;
+          left: 35px;
+          bottom: -80px;
+          z-index: 6; }
+          .gallery_wrapper .gallery ul li .project h2 span {
+            font-size: 18px; }
+        .gallery_wrapper .gallery ul li .project .project_link {
+          position: absolute;
+          right: 35px;
+          color: white;
+          text-decoration: none;
+          border: 1px solid;
+          font-size: 30px;
+          padding: 5px 15px;
+          /*bottom: 25px;*/
+          bottom: -80px;
+          border-radius: 5px;
+          z-index: 6; }
+          .gallery_wrapper .gallery ul li .project .project_link:hover {
+            background-color: rgba(255, 255, 255, 0.6); }
+        .gallery_wrapper .gallery ul li .project.in_active {
+          cursor: default; }
+          .gallery_wrapper .gallery ul li .project.in_active a .mask {
+            z-index: 6;
+            opacity: 0.9 !important;
+            transition: all 0.4s; }
+
+/*# sourceMappingURL=style.css.map */
