@@ -42,6 +42,8 @@ function showFirstImage(project) {
 $(document).ready(function(){
 	var max_z_index = 1;
 	var image_cycle = null;
+
+	
 	$('.project').hover(
 		function(){
 			var active = $(this);

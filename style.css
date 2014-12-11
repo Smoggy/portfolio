@@ -14,26 +14,26 @@
       color: red; }
 .gallery_wrapper .gallery {
   width: 100%; }
-  .gallery_wrapper .gallery ul {
+  .gallery_wrapper .gallery > ul {
     width: 100%; }
-    .gallery_wrapper .gallery ul li {
+    .gallery_wrapper .gallery > ul > li {
       width: 25%;
       height: 300px;
       float: left;
       position: relative; }
-      .gallery_wrapper .gallery ul li .project {
+      .gallery_wrapper .gallery > ul > li .project {
         width: 100%;
         position: absolute;
         overflow: hidden;
         height: 300px;
         z-index: 1;
         cursor: pointer; }
-        .gallery_wrapper .gallery ul li .project a .project_photos {
+        .gallery_wrapper .gallery > ul > li .project a .project_photos {
           margin-top: -25px;
           position: relative;
           width: 100%;
           height: 100%; }
-          .gallery_wrapper .gallery ul li .project a .project_photos img {
+          .gallery_wrapper .gallery > ul > li .project a .project_photos img {
             position: absolute;
             top: 0;
             left: 0;
@@ -43,9 +43,9 @@
             border: 0;
             height: auto;
             opacity: 0; }
-            .gallery_wrapper .gallery ul li .project a .project_photos img:first-child {
+            .gallery_wrapper .gallery > ul > li .project a .project_photos img:first-child {
               opacity: 1; }
-        .gallery_wrapper .gallery ul li .project a .mask {
+        .gallery_wrapper .gallery > ul > li .project a .mask {
           opacity: 0;
           width: 100%;
           height: 100%;
@@ -54,7 +54,7 @@
           position: absolute;
           transition: all 0.4s;
           z-index: 6; }
-        .gallery_wrapper .gallery ul li .project a .bottom_mask {
+        .gallery_wrapper .gallery > ul > li .project a .bottom_mask {
           position: absolute;
           width: 100%;
           height: 230px;
@@ -68,7 +68,7 @@
           background-image: -moz-linear-gradient(top, transparent 0%, #000000 100%);
           background-image: -o-linear-gradient(top, transparent 0%, #000000 100%);
           background-image: linear-gradient(top, transparent 0%, #000000 100%); }
-        .gallery_wrapper .gallery ul li .project h2 {
+        .gallery_wrapper .gallery > ul > li .project h2 {
           position: absolute;
           /*bottom: 25px;*/
           color: white;
@@ -76,9 +76,9 @@
           left: 35px;
           bottom: -80px;
           z-index: 6; }
-          .gallery_wrapper .gallery ul li .project h2 span {
+          .gallery_wrapper .gallery > ul > li .project h2 span {
             font-size: 18px; }
-        .gallery_wrapper .gallery ul li .project .project_link {
+        .gallery_wrapper .gallery > ul > li .project .project_link {
           position: absolute;
           right: 35px;
           color: white;
@@ -90,13 +90,32 @@
           bottom: -80px;
           border-radius: 5px;
           z-index: 6; }
-          .gallery_wrapper .gallery ul li .project .project_link:hover {
+          .gallery_wrapper .gallery > ul > li .project .project_link:hover {
             background-color: rgba(255, 255, 255, 0.6); }
-        .gallery_wrapper .gallery ul li .project.in_active {
+        .gallery_wrapper .gallery > ul > li .project.in_active {
           cursor: default; }
-          .gallery_wrapper .gallery ul li .project.in_active a .mask {
+          .gallery_wrapper .gallery > ul > li .project.in_active a .mask {
             z-index: 6;
             opacity: 0.9 !important;
             transition: all 0.4s; }
+
+@media (max-width: 2799px) {
+  .gallery_wrapper .gallery > ul > li {
+    width: 16.666666%; } }
+@media (max-width: 2399px) {
+  .gallery_wrapper .gallery > ul > li {
+    width: 20%; } }
+@media (max-width: 1999px) {
+  .gallery_wrapper .gallery > ul > li {
+    width: 25%; } }
+@media (max-width: 1599px) {
+  .gallery_wrapper .gallery > ul > li {
+    width: 33.33%; } }
+@media (max-width: 1199px) {
+  .gallery_wrapper .gallery > ul > li {
+    width: 50%; } }
+@media (max-width: 799px) {
+  .gallery_wrapper .gallery > ul > li {
+    width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */
