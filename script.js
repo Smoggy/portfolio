@@ -39,45 +39,134 @@ function showFirstImage(project) {
   }
 };
 
+function setColumns() {
+   $('body, .gallery_wrapper, .gallery')
+      .css('width', $(window).width());
+  var workColls = Math.floor($(window).width() / 400)
+      itemWidth = Math.floor($(window).width() / workColls);
+  $('.gallery > ul> li').css('width', itemWidth+'px');
+};
+
 $(document).ready(function(){
 	var max_z_index = 1;
 	var image_cycle = null;
+	/*var stickyNavTop = $('.project_menu').offset().top;
+		   	
+		   	var stickyNav = function(){
+			    var scrollTop = $(window).scrollTop();
 
-	
+			    if (scrollTop > stickyNavTop) { 
+			        $('.project_menu').addClass('sticky');
+			    } else {
+			        $('.project_menu').removeClass('sticky'); 
+			    }
+			};
+
+			stickyNav();
+			$(window).scroll(function() {
+				stickyNav();
+			});
+*/
+	setColumns();
+
+	$(window).resize(function(){
+		setColumns();
+	});
 	$('.project').hover(
 		function(){
-			var active = $(this);
-			if(active.hasClass('in_active')) { return; };
-			active.stop().animate({
-				height: "410",
-				top: "-55"
-			},400, function(){
-				active.find('h2').stop().animate({ opacity: '1', bottom: '25' }, 200 );
-				active.find('.project_link').stop().animate({ opacity: '1', bottom: '25' }, 200 );
-				fadeHoverImages(active);
-			});
+			if($(window).width()< 799) { return; }
+			var $this = $(this),
+				$other_projects = $('.project').not($this).find('.mask'),
+			    $project_photos = $(this).find('.project_photos'),
+			    $thisHeader = $this.find('h2'),
+			    $thisLink = $this.find('.project_link');
+
+			if($this.hasClass('in_active')) { return; };
+
+			TweenLite.to($this, .5, {
+          		height: "410px",
+          		top: "-55px",
+          		ease: Quint.easeInOut
+        	});
+        	TweenLite.to($project_photos, .5, {
+        		marginTop: "0",
+          		ease: Quint.easeInOut
+        	});
+        	TweenLite.to($other_projects, .1, {
+          		opacity: ".6",
+          		ease: Quint.easeInOut
+        	});
+        	TweenLite.to($this.find('.bottom_mask'), .5, {
+        		opacity: '1',
+        		ease: Quint.easeInOut
+        	});
+        	TweenLite.to($thisHeader, .5, {
+          		bottom: "25px",
+	          	opacity: "1",
+	          	ease: Quint.easeInOut,
+	          	delay: .1,
+	          	overwrite: 1
+	        });
+	        TweenLite.to($thisLink, .5, {
+	          	bottom: "25px",
+	          	opacity: "1",
+	          	ease: Quint.easeInOut,
+	          	delay: .15,
+	          	overwrite: 1,
+	          	onComplete: function() {
+	            	fadeHoverImages($this);
+	          	}
+	        });
+
 			max_z_index += 2;
-			active.css('z-index', max_z_index);
-			active.find('.project_photos').addClass('is-hover');
-			active.find('.project_photos').stop().animate({ marginTop: '0'}, 400 );
-			$('.project').not(active).find('.mask').css({ opacity: '0.6'} );
-			active.find('.bottom_mask').stop().animate({ opacity: '1'}, 200 );
+			$this.css('z-index', max_z_index);
+			$project_photos.addClass('is-hover');
 		},
 		function(){
-			var active = $(this);
-			if(active.hasClass('in_active')) { return; }
-			$(this).stop().animate({
-				height: "300",
-				top: "0"
-			},400, function(){
-				showFirstImage(active);
-			});
-			active.find('.project_photos').removeClass('is-hover');
-			active.find('.project_photos').stop().animate({ marginTop: '-25'}, 400 );
-			$('.project').not(active).find('.mask').css({ opacity: '0'} );
-			active.find('.bottom_mask').stop().animate({ opacity: '0'}, 200 );
-			active.find('h2').stop().animate({ opacity: '0', bottom: '-80' }, 100 );
-			active.find('.project_link').stop().animate({ opacity: '0',  bottom: '-80' }, 100 );
+			if($(window).width()< 799) { return; }
+
+			var $this = $(this),
+			    $project_photos = $(this).find('.project_photos'),
+			    $other_projects = $('.project').not($this).find('.mask'),
+			    $thisHeader = $this.find('h2'),
+			    $thisLink = $this.find('.project_link');
+
+			if($this.hasClass('in_active')) { return; }
+
+			$project_photos.removeClass('is-hover');
+
+			TweenLite.to($(this), .4, {
+          		height: "300px",
+          		top: "0",
+          		ease: Quint.easeInOut
+        	});
+        	TweenLite.to($project_photos, .5, {
+        		marginTop: "-25px",
+          		ease: Quint.easeInOut
+        	});
+        	TweenLite.to($other_projects, .1, {
+          		opacity: "0",
+          		ease: Quint.easeInOut
+        	});
+        	TweenLite.to($this.find('.bottom_mask'), .5, {
+        		opacity: '0',
+        		ease: Quint.easeInOut
+        	});
+        	TweenLite.to($thisHeader, .4, {
+	          	bottom: "-80px",
+	          	opacity: "0",
+	          	ease: Quint.easeInOut,
+	          	overwrite: 1
+	        });
+        	TweenLite.to($thisLink, .4, {
+	          	bottom: "-80px",
+	         	opacity: "0",
+	          	ease: Quint.easeInOut,
+	          	overwrite: 1,
+	          	onComplete: function() {
+	            	showFirstImage($this);
+	          	}
+	        });
 		}
 	);
 
